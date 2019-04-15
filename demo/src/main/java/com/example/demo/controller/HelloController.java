@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.adyen.model.notification.NotificationRequest;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 
 @RestController
 public class HelloController {
@@ -13,11 +13,10 @@ public class HelloController {
 	@PostMapping(path= "/hello")
 	public Response hello(NotificationRequest notificationRequest) throws JsonProcessingException {
 		
-		ObjectMapper mapper = new ObjectMapper();
-		
-		System.out.println("Events from Adyen: "+mapper.writeValueAsString(notificationRequest));
-		
-		System.out.println("Events from Adyen by toString "+notificationRequest);
+		 Gson gson = new Gson();
+		 String json = gson.toJson(notificationRequest);
+		 System.out.println("JSON:"+json);
+		 System.out.println("Normal:"+notificationRequest);
 		
 		return new Response("[accepted]") ;
 	}
