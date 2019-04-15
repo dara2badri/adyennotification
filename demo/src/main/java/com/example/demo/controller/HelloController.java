@@ -4,19 +4,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.adyen.model.notification.NotificationRequest;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.google.gson.Gson;
 
 @RestController
 public class HelloController {
 
 	@PostMapping(path= "/hello")
-	public Response hello(NotificationRequest notificationRequest) throws JsonProcessingException {
-		
-		 Gson gson = new Gson();
-		 String json = gson.toJson(notificationRequest);
-		 System.out.println("JSON:"+json);
-		 System.out.println("Normal:"+notificationRequest);
+	public Response hello(NotificationRequest notificationRequest){
+		 
+		 System.out.println("Live:"+notificationRequest.getLive());
+		 
+		 System.out.println("Event Code:"+notificationRequest.getNotificationItems().get(0).getEventCode());
+
 		
 		return new Response("[accepted]") ;
 	}
