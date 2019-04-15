@@ -17,6 +17,8 @@ public class HelloController {
 		
 		System.out.println("Events from Adyen: "+mapper.writeValueAsString(notificationRequest));
 		
+		System.out.println("Events from Adyen by toString "+notificationRequest);
+		
 		return new Response("[accepted]") ;
 	}
 }
