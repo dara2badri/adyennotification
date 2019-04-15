@@ -13,7 +13,7 @@ public class HelloController {
 		 
 		 System.out.println("Live:"+notificationRequest.getLive());
 		 
-		 System.out.println("Event Code:"+notificationRequest.getNotificationItems().get(0).getEventCode());
+		 //System.out.println("Event Code:"+notificationRequest.getNotificationItems().get(0).getEventCode());
 
 		
 		return new Response("[accepted]") ;
