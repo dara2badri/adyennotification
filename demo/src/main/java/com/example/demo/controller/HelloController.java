@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.adyen.model.notification.NotificationRequest;
@@ -8,8 +10,9 @@ import com.adyen.model.notification.NotificationRequest;
 @RestController
 public class HelloController {
 
+
 	@PostMapping(path= "/hello")
-	public Response hello(NotificationRequest notificationRequest){
+	public Response hello(@RequestBody NotificationRequest notificationRequest){
 		 
 		 System.out.println(notificationRequest);
 		 
@@ -17,5 +20,10 @@ public class HelloController {
 
 		
 		return new Response("[accepted]") ;
+	}
+	
+	@GetMapping(path= "/helloWorld")
+	public String helloWorld(){
+		return "sample" ;
 	}
 }
