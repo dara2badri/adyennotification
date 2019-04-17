@@ -11,7 +11,7 @@ public class HelloController {
 	@PostMapping(path= "/hello")
 	public Response hello(NotificationRequest notificationRequest){
 		 
-		 System.out.println("Live:"+notificationRequest.getLive());
+		 System.out.println(notificationRequest);
 		 
 		 //System.out.println("Event Code:"+notificationRequest.getNotificationItems().get(0).getEventCode());
 
