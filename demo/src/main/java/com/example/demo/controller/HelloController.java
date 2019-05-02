@@ -12,9 +12,13 @@ public class HelloController {
 
 
 	@PostMapping(path= "/hello")
-	public Response hello(@RequestBody NotificationRequest notificationRequest){
+	public Response hello(@RequestHeader Map<String, String> headers,@RequestBody NotificationRequest notificationRequest){
 		 
 		 System.out.println(notificationRequest);
+		
+		headers.forEach((key, value) -> {
+        System.out.println(String.format("Header '%s' = %s", key, value));
+    });
 		 
 		 //System.out.println("Event Code:"+notificationRequest.getNotificationItems().get(0).getEventCode());
 
